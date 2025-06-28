@@ -1,3 +1,4 @@
+//src/components/install-button.tsx
 "use client";
 import { useEffect, useState } from "react";
 

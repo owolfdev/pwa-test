@@ -1,12 +1,23 @@
-// public/sw.js
-self.addEventListener("install", (e) => {
-  e.waitUntil(
-    caches
-      .open("app-cache")
-      .then((cache) => cache.addAll(["/", "/favicon.ico", "/icon-192x192.png"]))
-  );
+//public/sw.js
+self.addEventListener("push", function (event) {
+  if (event.data) {
+    const data = event.data.json();
+    const options = {
+      body: data.body,
+      icon: data.icon || "/icon.png",
+      badge: "/badge.png",
+      vibrate: [100, 50, 100],
+      data: {
+        dateOfArrival: Date.now(),
+        primaryKey: "2",
+      },
+    };
+    event.waitUntil(self.registration.showNotification(data.title, options));
+  }
 });
 
-self.addEventListener("fetch", (e) => {
-  e.respondWith(caches.match(e.request).then((r) => r || fetch(e.request)));
+self.addEventListener("notificationclick", function (event) {
+  console.log("Notification click received.");
+  event.notification.close();
+  event.waitUntil(clients.openWindow("<https://your-website.com>"));
 });

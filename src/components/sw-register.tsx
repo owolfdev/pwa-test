@@ -1,3 +1,4 @@
+//src/components/sw-register.tsx
 "use client";
 import { useEffect } from "react";
 

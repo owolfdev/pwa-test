@@ -1,9 +1,10 @@
-import InstallButton from "@/components/install-button";
+"use client";
+import PushNotificationManager from "@/components/push-notification-manager";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <InstallButton />
-    </div>
+    <main>
+      <PushNotificationManager />
+    </main>
   );
 }
