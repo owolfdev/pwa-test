@@ -12,7 +12,7 @@ webpush.setVapidDetails(
 let subscription: WebPushSubscription | null = null;
 
 type PushSubscriptionJSON = {
-  endpoint: string;
+  endpoint?: string; // <-- optional
   expirationTime?: number | null;
   keys?: {
     p256dh?: string;
@@ -22,7 +22,7 @@ type PushSubscriptionJSON = {
 
 export async function subscribeUser(sub: PushSubscriptionJSON) {
   if (!sub.endpoint) throw new Error("PushSubscription must have an endpoint");
-  subscription = sub as unknown as WebPushSubscription; // type-cast for web-push compatibility
+  subscription = sub as unknown as WebPushSubscription;
   return { success: true };
 }
 
