@@ -1,11 +1,10 @@
 {
-  "name": "My Next.js Application",
-  "short_name": "Next.js App",
-  "description": "An application built with Next.js",
+  "name": "Minimal Next.js PWA",
+  "short_name": "MinimalPWA",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
   "background_color": "#ffffff",
+  "theme_color": "#317EFB",
   "icons": [
     {
       "src": "/icon-192x192.png",

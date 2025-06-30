@@ -1,12 +1,9 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import SWRegister from "@/components/sw-register";
 
 export const metadata: Metadata = {
   title: "Minimal Next.js PWA",
-  description: "A minimal PWA using Next.js 15",
-  themeColor: "#317EFB",
-  // ...other metadata
+  description: "A minimal PWA with Next.js 15",
 };
 
 export default function RootLayout({
@@ -20,8 +17,10 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#317EFB" />
       </head>
-      <SWRegister />
-      <body>{children}</body>
+      <body>
+        <SWRegister />
+        {children}
+      </body>
     </html>
   );
 }
